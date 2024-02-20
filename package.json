@@ -1,0 +1,19 @@
+{
+  "name": "daily-commit-reminder",
+  "version": "1.0.0",
+  "description": "Automatically send a user an email at 8pm if they haven't commit to GitHub yet today",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mecaneer23/daily-commit-reminder.git"
+  },
+  "author": "mecaneer23",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mecaneer23/daily-commit-reminder/issues"
+  },
+  "homepage": "https://github.com/mecaneer23/daily-commit-reminder#readme"
+}
