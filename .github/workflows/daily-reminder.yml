@@ -1,0 +1,26 @@
+name: Daily Email Reminder
+
+on:
+  schedule:
+    - cron: '0 20 * * *'
+  workflow_dispatch:
+
+env:
+  MAIL_USER: ${{ secrets.MAIL_USER }}
+  MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+  FROM: ${{ secrets.DAILY_REPORT_FROM }}
+  TO: ${{ secrets.DAILY_REPORT_TO }}
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 18
+
+      - run: npm ci
+
+      - run: node src/main.js
