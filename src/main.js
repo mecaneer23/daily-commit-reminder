@@ -68,6 +68,10 @@ async function getMostRecentCommit(user) {
 
     const relativeTime = getRelativeTime(new Date(await getMostRecentCommit("mecaneer23")));
 
+    if (relativeTime === "today") {
+        console.log("Nice job! You committed today.");
+        return;
+    }
     console.log("Sending email...");
     await transporter.sendMail({
         from: process.env.FROM,
