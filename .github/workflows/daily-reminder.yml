@@ -8,8 +8,8 @@ on:
 env:
   MAIL_USER: ${{ secrets.MAIL_USER }}
   MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
-  FROM: ${{ secrets.DAILY_REPORT_FROM }}
-  TO: ${{ secrets.DAILY_REPORT_TO }}
+  FROM: ${{ secrets.FROM }}
+  TO: ${{ secrets.TO }}
 
 jobs:
   report:
