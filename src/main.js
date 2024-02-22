@@ -66,9 +66,10 @@ async function getMostRecentCommit(user) {
         }
     });
 
-    const relativeTime = getRelativeTime(new Date(await getMostRecentCommit("mecaneer23")));
+    const commitTime = new Date(await getMostRecentCommit("mecaneer23"));
+    console.log(commitTime.toString());
 
-    if (relativeTime === "today") {
+    if (commitTime > new Date().setHours(0, 0, 0, 0)) {
         console.log("Nice job! You committed today.");
         return;
     }
@@ -78,7 +79,7 @@ async function getMostRecentCommit(user) {
         to: process.env.TO,
         subject: "Daily GitHub Commit Reminder",
         html: `
-        <p>The last time you committed to GitHub was ${relativeTime}.</p>
+        <p>The last time you committed to GitHub was ${getRelativeTime(commitTime)}.</p>
         <p>You should make a commit :)</p>
     `,
     });
