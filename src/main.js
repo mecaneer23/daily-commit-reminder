@@ -67,9 +67,21 @@ async function getMostRecentCommit(user) {
     });
 
     const commitTime = new Date(await getMostRecentCommit("mecaneer23"));
-    console.log(commitTime.toString());
+    console.log("commitTime: ");
+    console.log(commitTime);
+    console.log(commitTime.toString() + "\n");
 
-    if (commitTime > new Date().setHours(0, 0, 0, 0)) {
+    const today = new Date();
+    console.log("now: ");
+    console.log(today);
+    console.log(today.toString() + "\n");
+
+    today.setHours(0, 0, 0, 0);
+    console.log("today: ")
+    console.log(today);
+    console.log(today.toString() + "\n");
+
+    if (commitTime > today.setHours(0, 0, 0, 0)) {
         console.log("Nice job! You committed today.");
         return;
     }
