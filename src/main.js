@@ -76,7 +76,7 @@ async function getMostRecentCommit(user) {
     console.log(today);
     console.log(today.toString() + "\n");
 
-    today.setHours(0, 0, 0, 0);
+    today.setUTCHours(-18, 0, 0, 0);
     console.log("today: ")
     console.log(today);
     console.log(today.toString() + "\n");
