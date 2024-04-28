@@ -81,9 +81,10 @@ async function getMostRecentCommit(user) {
     console.log(today);
     console.log(today.toString() + "\n");
 
-    console.log("relativeTime: " + getRelativeTime(commitTime) + "\n");
+    const relTime = getRelativeTime(commitTime);
+    console.log("relativeTime: " + relTime + "\n");
 
-    if (commitTime > today) {
+    if (relTime.equals("today")) {
         console.log("Nice job! You committed today.");
         return;
     }
