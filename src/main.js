@@ -84,7 +84,7 @@ async function getMostRecentCommit(user) {
     const relTime = getRelativeTime(commitTime);
     console.log("relativeTime: " + relTime + "\n");
 
-    if (relTime.equals("today")) {
+    if (relTime == "today") {
         console.log("Nice job! You committed today.");
         return;
     }
