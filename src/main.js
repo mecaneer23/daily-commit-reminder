@@ -48,7 +48,7 @@ async function getMostRecentCommit(user) {
         }
     });
 
-    const commitTime = new Date(await getMostRecentCommit("mecaneer23"));
+    const commitTime = new Date(await getMostRecentCommit(process.env.GITHUB_USERNAME));
     console.log("commitTime: ");
     console.log(commitTime);
     console.log(commitTime.toString() + "\n");
