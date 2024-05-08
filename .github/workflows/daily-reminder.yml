@@ -10,6 +10,7 @@ env:
   MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
   FROM: ${{ secrets.FROM }}
   TO: ${{ secrets.TO }}
+  USERNAME: ${{ secrets.USERNAME }}
 
 jobs:
   report:
