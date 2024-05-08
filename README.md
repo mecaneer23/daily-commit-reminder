@@ -11,4 +11,4 @@ Automatically send a user an email at 8pm if they haven't commit to GitHub yet t
    - MAIL_PASSWORD = `paste your password from step 1 here`
    - FROM = `Email Reminder Bot <you@example.com>`
    - TO = `you@example.com`
-   - USER = `your_github_username`
+   - USERNAME = `your_github_username`
