@@ -17,7 +17,7 @@ async function getMostRecentRepo(user) {
     const url = `https://api.github.com/users/${user}/repos?per_page=100`;
     return fetch(url)
         .then(async response => {
-            data = await response.json();
+            const data = await response.json();
             if (!response.ok || data.length === 0) {
                 return [{ name: "repo_fetch_failed" }];
             }
