@@ -13,28 +13,10 @@ function getRelativeTime(timestamp) {
     return rtf.format(daysDifference, 'day');
 }
 
-async function getMostRecentRepo(user) {
-    const url = `https://api.github.com/users/${user}/repos?per_page=100`;
+async function getMostRecentCommit(user) {
+    const url = `https://api.github.com/users/${user}/events/public`;
     return fetch(url)
         .then(async response => {
-            const data = await response.json();
-            if (!response.ok || data.length === 0) {
-                return [{ name: "repo_fetch_failed" }];
-            }
-            return data;
-        })
-        .then(data => {
-            data.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
-            return data[0].name;
-        })
-        .catch(error => console.log('There was a problem with the fetch operation: ' + error.message));
-}
-
-async function getMostRecentCommit(user) {
-    const repo = await getMostRecentRepo(user)
-    const url = `https://api.github.com/repos/${user}/${repo}/commits`;
-    return fetch(url)
-        .then(response => {
             if (!response.ok) {
                 return [{
                     commit: {
@@ -50,7 +32,7 @@ async function getMostRecentCommit(user) {
             return response.json();
         })
         .then(data => {
-            return data[0].commit.author.date;
+            return data[0].created_at;
         })
         .catch(error => console.log('There was a problem with the fetch operation: ' + error.message));
 }
