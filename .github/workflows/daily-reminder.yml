@@ -2,7 +2,7 @@ name: Daily Email Reminder
 
 on:
   schedule:
-    - cron: '13 23 * * *'
+    - cron: '16 30 * * *'
   workflow_dispatch:
 
 env:
